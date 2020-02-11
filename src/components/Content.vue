@@ -15,7 +15,20 @@
     import Important from './Important.vue'
     import Trash from './Trash.vue'
     import ViewMessage from './ViewMessage'
+    import {eventBus} from '../main'
     export default {
+        created(){
+            eventBus.$on('changeView',(data)=>{
+                let temp = [
+                    {
+                        tag:data.tag,
+                        title: data.title
+                    }
+                ]
+                // console.log(this.history)
+                this.history = temp.concat(this.history.splice(0))
+            })
+        },
         data(){
             return{
                 history: [
