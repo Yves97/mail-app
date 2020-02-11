@@ -45,6 +45,7 @@ export default {
             activeView : 'app-inbox'
         }
     },
+    //changement dynamique des components via le eventBus(creation d'evenement)
     methods: {
         navigate(newVue,title){
         eventBus.$emit('changeView',{

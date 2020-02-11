@@ -5,6 +5,7 @@ import './plugins/fontawesome'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
 
+//pour le transfert des data entre components
 export const eventBus = new Vue()
 
 Vue.config.productionTip = false

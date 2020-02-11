@@ -10,6 +10,7 @@
 </template>
 
 <script>
+    //importation des components enfants
     import Inbox from './Inbox.vue'
     import Sent from './Sent.vue'
     import Important from './Important.vue'
@@ -25,7 +26,7 @@
                         title: data.title
                     }
                 ]
-                // console.log(this.history)
+                // concatenation du tableau history et temp pour l'affichage dynamique des data components
                 this.history = temp.concat(this.history.splice(0))
             })
         },
