@@ -1,7 +1,7 @@
 <template>
     <aside class="sm-side">
         <div class="user-head">
-            <img src="../assets/images/profile.jpg">
+            <img src="../../public/images/profile.jpg">
             <div class="user-name">
                 <h5>Bo Anderson</h5>
                 <span class="email-address">yveskouadio111@yahoo.fr</span>
@@ -10,7 +10,7 @@
         <ul class="inbox-nav">
             <li class="active">
                 <a href="#">
-                    <i class="fa fa-inbox" aria-hidden="true"></i>Inbox <span class="label label-danger pull-right">?</span>
+            v        <i class="fa fa-inbox" aria-hidden="true"></i>Inbox <span class="label label-danger pull-right">?</span>
                 </a>
             </li>
             <li>
