@@ -9,22 +9,22 @@
         </div>
         <ul class="inbox-nav">
             <li class="active">
-                <a href="#">
-            v        <i class="fa fa-inbox" aria-hidden="true"></i>Inbox <span class="label label-danger pull-right">?</span>
+                <a href="#" @click.prevent="navigate('app-inbox','Inbox')">
+                    <i class="fa fa-inbox" aria-hidden="true"></i>Inbox <span class="label label-danger pull-right">?</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" @click.prevent="navigate('app-sent','Sent')">
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>Sent <span class="label label-default pull-right">?</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" @click.prevent="navigate('app-important','Important')">
                     <i class="fa fa-bookmark-o" aria-hidden="true"></i>Important<span class="label label-warning pull-right">?</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" @click.prevent="navigate('app-trash','Trash')">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>Trash <span class="label label-default pull-right">?</span>
                 </a>
             </li>
