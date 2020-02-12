@@ -11,18 +11,18 @@
                     </div>
 
                     <div class="modal-body">
-                        <form role="form" class="form-horizontal">
+                        <form role="form" class="form-horizontal" @submit.prevent="sendMessage">
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="subject">Subject</label>
                                 <div class="col-lg-10">
-                                    <input type="text" id="subject" class="form-control">
+                                    <input type="text" id="subject" class="form-control" v-model="message.subject">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="message">Message</label>
                                 <div class="col-lg-10">
-                                    <textarea  rows="10" cols="30" class="form-control" id="message"></textarea>
+                                    <textarea  rows="10" cols="30" class="form-control" id="message" v-model="message.content"></textarea>
                                 </div>
                             </div>
 
@@ -40,7 +40,34 @@
 </template>
 
 <script>
-export default {
-    
-}
+    import {eventBus} from '../main'
+    import moment from 'moment'
+    export default {
+        data(){
+            return{
+                message:{
+                    subject:'',
+                    content: ''
+                }
+            }
+        },
+        methods:{
+            sendMessage(){
+                eventBus.$emit('sentMessage',{
+                    message:{
+                        subject:this.message.subject,
+                        content: this.message.content,
+                        isDeleted: false,
+                        type:'outgoing',
+                        date:moment(),
+                        from:{
+                            name: 'Yves Kouadio',
+                            email:'yveskouadio111@yahoo.fr'
+                        },
+                        attachments:[]
+                    }
+                })
+            }
+        }
+    }
 </script>

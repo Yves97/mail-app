@@ -7,6 +7,9 @@
                 <span class="email-address">yveskouadio111@yahoo.fr</span>
             </div>
         </div>
+        <div class="compose-wrapper">
+            <app-compose></app-compose>
+        </div>
         <ul class="inbox-nav">
             <li :class="{active: activeView == 'app-inbox'}">
                 <a href="#" @click.prevent="navigate('app-inbox','Inbox')">
@@ -33,56 +36,60 @@
 </template>
 
 <script>
+    import Compose from './Compose.vue'
     import {eventBus} from '../main'
-export default {
-    //passing data from the parent App.vue 
-    props:{
-        messages:{
-            type: Array,
-            required: true
-        }
-    },
-    created(){
-        eventBus.$on('changeView',(data)=>{
-            this.activeView = data.tag
-        })
-    },
-    data(){
-        return{
-            activeView : 'app-inbox'
-        }
-    },
-    //changement dynamique des components via le eventBus(creation d'evenement)
-    methods: {
-        navigate(newVue,title){
-            eventBus.$emit('changeView',{
-                tag: newVue,
-                title: title
-            })
-        }
-    },
-    computed:{
-        //differents messages states computed
-        unreadMessages(){
-            return this.messages.filter(function(message){
-                return (message.type == 'incoming' && !message.isRead && !message.isDeleted)
+    export default {
+        //passing data from the parent App.vue 
+        props:{
+            messages:{
+                type: Array,
+                required: true
+            }
+        },
+        created(){
+            eventBus.$on('changeView',(data)=>{
+                this.activeView = data.tag
             })
         },
-        sentMessages(){
-            return this.messages.filter(function(message){
-                return (message.type == 'outgoing' && !message.isDeleted)
-            })
+        data(){
+            return{
+                activeView : 'app-inbox'
+            }
         },
-        importantMessages(){
-            return this.messages.filter(function(message){
-                return (message.type == 'incoming' && message.isImporant === true && !message.isDeleted)
-            })
+        //changement dynamique des components via le eventBus(creation d'evenement)
+        methods: {
+            navigate(newVue,title){
+                eventBus.$emit('changeView',{
+                    tag: newVue,
+                    title: title
+                })
+            }
         },
-        trashedMessages(){
-            return this.messages.filter(function(message){
-                return message.isDeleted === true
-            })
+        computed:{
+            //differents messages states computed
+            unreadMessages(){
+                return this.messages.filter(function(message){
+                    return (message.type == 'incoming' && !message.isRead && !message.isDeleted)
+                })
+            },
+            sentMessages(){
+                return this.messages.filter(function(message){
+                    return (message.type == 'outgoing' && !message.isDeleted)
+                })
+            },
+            importantMessages(){
+                return this.messages.filter(function(message){
+                    return (message.type == 'incoming' && message.isImporant === true && !message.isDeleted)
+                })
+            },
+            trashedMessages(){
+                return this.messages.filter(function(message){
+                    return message.isDeleted === true
+                })
+            }
+        },
+        components:{
+            appCompose: Compose
         }
     }
-}
 </script>
