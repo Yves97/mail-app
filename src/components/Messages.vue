@@ -6,14 +6,14 @@
                     <input type="checkbox">
                 </td>
                 <td>
-                    <a href="#" v-if="typeof messages.isImportant !== 'undefined'">
-                        <i class="fa fa-star" aria-hidden="true"></i>
+                    <a href="#" v-if="typeof message.isImportant !== 'undefined'" @click.prevent.stop="message.isImportant = !message.isImportant">
+                        <i :class="['fa','fa-star',{important:message.isImportant}]"></i>
                     </a>
                 </td>
                 <td>{{ message.from.name }}</td>
                 <td>{{ message.subject }}</td>
                 <td>
-                    <i v-if="message.attachments.length > 0" class="fa fa-paperclip" aria-hidden="true"></i>
+                    <i v-if="message.attachments.length > 0" class="fa fa-paperclip"></i>
                 </td>
                 <td class="text-right">{{ message.date.fromNow() }}</td>
             </tr>
