@@ -14,6 +14,9 @@
   import Content from './components/Content.vue'
   //importation des data (API)
   import messages from '../src/data/messages'
+  import randomMessages from '../src/data/random-messages'
+  //----------------------------------
+  import {eventBus} from './main';
 
 export default {
   data(){
@@ -22,7 +25,13 @@ export default {
       messages : messages
     }
   },
-
+  created(){
+    eventBus.$on('refreshMessages',()=>{
+      let randomIndex = Math.floor(Math.random()*randomMessages.length)
+      let temp = [randomMessages[randomIndex]]
+      this.messages = temp.concat(this.messages.slice(0))
+    })
+  },
   components: {
     appSidebar: Sidebar,
     appContent: Content
