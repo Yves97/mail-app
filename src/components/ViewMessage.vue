@@ -16,26 +16,32 @@
 </template>
 
 <script>
-export default {
-    props:{
-        data:{
-            type:Object,
-            required:true
-        }
-    },
-    filters:{
-        formatBytes(bytes){
-            if(bytes == 0){
-                return '0 Byte'
+    export default {
+        props:{
+            data:{
+                type:Object,
+                required:true
             }
-            let decimals = 2
-            let k = 1000
-            let dm = decimals + 1 || 3
-            let sizes = ['Bytes','KB','MB','GB','TB','PB','EB','ZB','YB']
-            let i = Math.floor(Math.log(bytes) / Math.log(k))
-            return parseFloat((bytes/Math.pow(k,i)).toFixed(dm)) + ' ' + sizes[i]
+        },
+        activated(){
+            if(typeof this.data.message.isRead !== 'undefined'){
+                this.data.message.isRead = true
+            }
+        },
+        filters:{
+            //scripts affichage de bytes selon la taille du document join au message
+            formatBytes(bytes){
+                if(bytes == 0){
+                    return '0 Byte'
+                }
+                let decimals = 2
+                let k = 1000
+                let dm = decimals + 1 || 3
+                let sizes = ['Bytes','KB','MB','GB','TB','PB','EB','ZB','YB']
+                let i = Math.floor(Math.log(bytes) / Math.log(k))
+                return parseFloat((bytes/Math.pow(k,i)).toFixed(dm)) + ' ' + sizes[i]
 
+            }
         }
     }
-}
 </script>
