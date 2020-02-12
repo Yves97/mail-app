@@ -1,5 +1,23 @@
 <template>
     <div class="inbox-body">
+        <div class="mail-option">
+            <button class="btn btn-primary" @click="navigateBack">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+            </button>
+            <button class="btn btn-danger ml-2" @click="data.message.isDeleted = true" :disabled="data.message.isDeleted">
+                <i class="fa fa-trash-o" aria-hidden="true"></i> {{data.message.isDeleted ? 'Deleted' : 'Delete'}}
+            </button>
+
+            <template v-if="typeof data.message.isRead !== 'undefined'">
+                <button class="btn btn-primary mr-2 ml-2" @click="data.message.isRead = false" :disabled="!data.message.isRead">
+                <i class="fa fa-envelope-open-o" aria-hidden="true"></i> Mark As unread
+                </button>
+
+                <button class="btn btn-primary" @click="data.message.isRead = true" :disabled="data.message.isRead">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Mark as Read
+                </button>
+            </template>
+        </div>
         <p><strong>Date:</strong>{{ data.message.date.fromNow() }}</p>
         <p><strong>From:</strong> {{data.message.from.name}}  [{{ data.message.from.email }}]</p>
         <hr>
@@ -16,6 +34,7 @@
 </template>
 
 <script>
+    import {eventBus} from '../main'
     export default {
         props:{
             data:{
@@ -40,7 +59,17 @@
                 let sizes = ['Bytes','KB','MB','GB','TB','PB','EB','ZB','YB']
                 let i = Math.floor(Math.log(bytes) / Math.log(k))
                 return parseFloat((bytes/Math.pow(k,i)).toFixed(dm)) + ' ' + sizes[i]
-
+            }
+        },
+        methods:{
+            navigateBack(){
+                // console.log(this.$parent)
+                let previousView = this.$parent.previousView
+                eventBus.$emit('changeView',{
+                    tag: previousView.tag,
+                    title: previousView.title,
+                    data: previousView.data
+                })
             }
         }
     }
