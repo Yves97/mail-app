@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a href="#composeModal" data-toggle="modal" class="btn btn-compose">Compose</a>
+        <a href="#composeModal" data-toggle="modal" class="btn-compose">Compose</a>
 
         <div aria-hidden="true" role="dialog" tabindex="-1" id="composeModal" class="modal fade" style="display: none;">
             <div class="modal-dialog">

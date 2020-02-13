@@ -1,11 +1,22 @@
 <template>
     <aside class="sm-side">
         <div class="user-head">
-            <img src="../../public/images/profile.jpg">
+            <!-- <div style='height:100px;width:100px;border-radius:50%;background:url("<%= BASE_URL %>images/profil.png") center no-repat;background-size:cover'></div> -->
+            <!-- <img src="../../public/images/profile.jpg"> -->
             <div class="user-name">
                 <h5>Bo Anderson</h5>
                 <span class="email-address">yveskouadio111@yahoo.fr</span>
             </div>
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        
+                    </div>
+                    <div class="col-6">
+                        
+                    </div>
+                </div>
+            </div> -->
         </div>
         <div class="compose-wrapper">
             <app-compose></app-compose>
@@ -63,7 +74,7 @@
                     tag: newVue,
                     title: title
                 })
-            }
+            },
         },
         computed:{
             //differents messages states computed
