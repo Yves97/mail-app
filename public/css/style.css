@@ -4,10 +4,13 @@
     --color-white: #fff;
     --primary-color_dark: #00a8b3;
     --primary-color_light: #41cac0;
+    --primary-color_lighten:#87e2e7;
     --color-red:#ff6c60;
     --color-red_dark :#f5675c; 
     --yellow-color: #f78a09;
     --color-gray:#e5e8ef;
+    --color-gray__dark:#6a6a6a;
+    --color-active : #d5d7de;
 }
 
 /****************************/
@@ -69,8 +72,8 @@ a,a:hover{
 }
 
 .mail-box .sm-side .user-head {
-    background: none repeat scroll 0 0 #00a8b3;
-    color: #fff;
+    background: none repeat scroll 0 0 var(--primary-color_dark);
+    color: var(--color-white);
     padding: 2rem;
 }
 
@@ -92,15 +95,15 @@ a,a:hover{
 }
 
 .user-head .user-name .email-address {
-    color: #87e2e7;
+    color: var(--primary-color_lighten);
     font-size: 1.2rem;
     cursor: default;
 }
 
 a.mail-dropdown {
-    background: none repeat scroll 0 0 #80d3d9;
+    background: none repeat scroll 0 0 var(--primary-color_lighten);
     border-radius: 2px;
-    color: #01a7b3;
+    color: var(--primary-color_light);
     font-size: 1rem;
     margin-top: 2rem;
     padding: .3rem .5rem;
@@ -130,7 +133,7 @@ a.mail-dropdown {
 
 .btn-compose:hover {
     background: var(--color-red_dark);
-    color: #fff;
+    color: var(--color-white);
 }
 
 /* .btn-compose:visited {
@@ -145,7 +148,7 @@ ul.inbox-nav {
 }
 
 .inbox-divider {
-    border-bottom: 1px solid #d5d8df;
+    border-bottom: 1px solid var(--color-gray);
 }
 
 ul.inbox-nav li {
@@ -160,15 +163,16 @@ ul.inbox-nav li i {
 }
 
 ul.inbox-nav li a {
-    color: #6a6a6a;
+    color: var(--color-gray_dark);
     display: inline-block;
+    font-size: 1.2rem;
     line-height: 4.5rem;
     padding: 0 2rem;
     width: 100%;
 }
 
 ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus {
-    background: none repeat scroll 0 0 #d5d7de;
+    background: none repeat scroll 0 0 var(--color-active);
     color: #6a6a6a;
     text-decoration: none;
 }
@@ -179,9 +183,9 @@ ul.inbox-nav li a i {
     padding-right: 1rem;
 }
 
-ul.inbox-nav li a span.label {
+/* ul.inbox-nav li a span.label {
     margin-top: 1.3rem;
-}
+} */
 
 .inbox-head {
     background: none repeat scroll 0 0 #41cac0;
