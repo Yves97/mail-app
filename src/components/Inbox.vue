@@ -3,7 +3,7 @@
         <div class="mail-option">
             <div class="btn-group">
                 <a href="#" class="btn" @click="refresh">
-                    <i class="fa fa-refresh"></i> Refresh
+                    <i class="fa fa-refresh"></i> Rafraichir
                 </a>
             </div>
         </div>

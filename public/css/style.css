@@ -2,15 +2,16 @@
 :root{
     --color-black: #000;
     --color-white: #fff;
-    --primary-color_dark: #00a8b3;
-    --primary-color_light: #41cac0;
-    --primary-color_lighten:#87e2e7;
-    --color-red:#ff6c60;
-    --color-red_dark :#f5675c; 
+    --color-white__dark: #f7f7f7;
+    --primary-color_dark: #eec1ea;
+    --primary-color_light: #eec1ea;
+    --primary-color_lighten:#ecade7;
+    --color-green:#c5fad9;
     --yellow-color: #f78a09;
     --color-gray:#e5e8ef;
     --color-gray__dark:#6a6a6a;
     --color-active : #d5d7de;
+    --color-pink__dark:#e41749;
 }
 
 /****************************/
@@ -67,7 +68,10 @@ a,a:hover{
 }
 
 .mail-box .lg-side {
-    background: var(--color-white);
+    /* background:#ffffffb0; */
+    /* background: var(--color-white); */
+    background: rgba(0, 0, 0, 0.199);
+    color: var(--color-white) !important;
     flex: 4 !important;
 }
 
@@ -114,16 +118,41 @@ a.mail-dropdown {
 }
 
 .inbox-body {
-    padding: 2rem 0 2rem 2rem;
+    padding: 2rem;
     background: transparent;
+    height: 55rem;
+    overflow: auto;
+}
+
+.inbox-body ::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -o-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: transparent;
+}
+
+.inbox-body::-webkit-scrollbar{
+	width: 1rem;
+	background-color: transparent;
+}
+
+.inbox-body::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.733);
+    border-radius: 10px;
+}
+
+.inbox-body::-webkit-scrollbar-thumb:hover{
+    background-color: var(--primary-color_dark);
 }
 
 .btn-compose {
+    border: 1px solid var(--color-pink__dark);
     font-size: 1.5rem;
     display: block;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
-    background:  var(--color-red);
+    background:  var(--color-pink__dark);
     color: var(--color-white);
     padding: 1.2rem 0;
     text-align: center;
@@ -132,8 +161,8 @@ a.mail-dropdown {
 }
 
 .btn-compose:hover {
-    background: var(--color-red_dark);
-    color: var(--color-white);
+    background: transparent;
+    color: var(--color-pink__dark);
 }
 
 /* .btn-compose:visited {
@@ -173,12 +202,12 @@ ul.inbox-nav li a {
 
 ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus {
     background: none repeat scroll 0 0 var(--color-active);
-    color: #6a6a6a;
+    color: var(--color-gray__dark);
     text-decoration: none;
 }
 
 ul.inbox-nav li a i {
-    color: #6a6a6a;
+    color: var(--color-gray__dark);
     font-size: 1.6rem;
     padding-right: 1rem;
 }
@@ -188,8 +217,8 @@ ul.inbox-nav li a i {
 } */
 
 .inbox-head {
-    background: none repeat scroll 0 0 #41cac0;
-    color: #fff;
+    background: var(--primary-color_lighten);
+    color: var(--color-white);
     padding: 2rem;
 }
 
@@ -204,28 +233,30 @@ ul.inbox-nav li a i {
     border: medium none;
     border-radius: 4px 0 0 4px;
     box-shadow: none;
-    color: #8a8a8a;
+    color: var(--color-gray__dark);
     float: left;
     height: 4rem;
     padding: 0 1rem;
 }
 
 .inbox-head .sr-btn {
-    background: none repeat scroll 0 0 #00a6b2;
+    background: none repeat scroll 0 0 var(--primary-color_dark);
     border: medium none;
     border-radius: 0 4px 4px 0;
-    color: #fff;
+    color: var(--color-white);
     height: 4rem;
     padding: 0 2rem;
 }
 
 .table-inbox {
-    border: 1px solid #d3d3d3;
+    border: 1px solid var(--color-gray);
     margin-bottom: 0;
 }
 
 .table-inbox tr td {
     padding: 1.2rem !important;
+    font-size: 1.2rem;
+    color: var(--color-white);
 }
 
 .table-inbox tr td:hover {
@@ -233,15 +264,15 @@ ul.inbox-nav li a i {
 }
 
 .table-inbox tr td .fa-star.important, .table-inbox tr td .fa-star:hover {
-    color: #f78a09;
+    color: var(--yellow-color);
 }
 
 .table-inbox tr td .fa-star {
-    color: #d5d5d5;
+    color: var(--color-gray);
 }
 
 .table-inbox tr.unread td {
-    background: none repeat scroll 0 0 #f7f7f7;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.555);
     font-weight: 600;
 }
 
@@ -260,7 +291,7 @@ ul.inbox-pagination li {
 }
 
 .mail-option .btn-group a.btn {
-    background: none repeat scroll 0 0 #fcfcfc;
+    background: none repeat scroll 0 0 var(--color-white__dark);
     border: 1px solid #e7e7e7;
     border-radius: 3px !important;
     color: #afafaf;
@@ -274,21 +305,21 @@ ul.inbox-pagination li {
 
 .fileinput-button {
     background: none repeat scroll 0 0 #eeeeee;
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--color-white__dark);
 }
 
 .inbox-body .modal .modal-body input, .inbox-body .modal .modal-body textarea {
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--color-white__dark);
     box-shadow: none;
 }
 
 .btn-send, .btn-send:hover {
-    background: none repeat scroll 0 0 #00a8b3;
-    color: #fff;
+    background: none repeat scroll 0 0 var(--primary-color_light);
+    color: var(--color-white);
 }
 
 .btn-send:hover {
-    background: none repeat scroll 0 0 #009da7;
+    background: none repeat scroll 0 0 var(--primary-color_lighten);
 }
 
 .modal-header h4.modal-title {
@@ -302,8 +333,8 @@ ul.inbox-pagination li {
 }
 
 .heading-inbox h4 {
-    border-bottom: 1px solid #ddd;
-    color: #444;
+    border-bottom: 1px solid var(--color-gray);
+    color: var(--color-gray__dark);
     font-size: 1.8rem;
     margin-top: 2rem;
     padding-bottom: 1rem;
@@ -320,13 +351,13 @@ ul.inbox-pagination li {
 
 .sender-dropdown {
     background: none repeat scroll 0 0 #eaeaea;
-    color: #777;
+    color: var(--color-gray__dark);
     font-size: 1rem;
     padding: 0 .3rem;
 }
 
 .view-mail a {
-    color: #ff6c60;
+    color: var(--color-red);
 }
 
 .attachment-mail {
