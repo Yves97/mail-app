@@ -4,7 +4,7 @@
             <!-- <div style='height:100px;width:100px;border-radius:50%;background:url("<%= BASE_URL %>images/profil.png") center no-repat;background-size:cover'></div> -->
             <!-- <img src="../../public/images/profile.jpg"> -->
             <div class="user-name">
-                <h5>Bo Anderson</h5>
+                <h5>Yves Kouadio</h5>
                 <span class="email-address">yveskouadio111@yahoo.fr</span>
             </div>
             <!-- <div class="container">
