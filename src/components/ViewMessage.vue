@@ -1,7 +1,7 @@
 <template>
     <div class="inbox-body">
         <div class="mail-option">
-            <button class="btn btn-primary" @click="navigateBack">
+            <button class="btn btn-action" @click="navigateBack">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
             </button>
             <button class="btn btn-danger ml-2" @click="data.message.isDeleted = true" :disabled="data.message.isDeleted">
@@ -9,17 +9,19 @@
             </button>
 
             <template v-if="typeof data.message.isRead !== 'undefined'">
-                <button class="btn btn-primary mr-2 ml-2" @click="data.message.isRead = false" :disabled="!data.message.isRead">
+                <button class="btn btn-action mr-2 ml-2" @click="data.message.isRead = false" :disabled="!data.message.isRead">
                 <i class="fa fa-envelope-open-o" aria-hidden="true"></i> Mark As unread
                 </button>
 
-                <button class="btn btn-primary" @click="data.message.isRead = true" :disabled="data.message.isRead">
+                <button class="btn btn-action" @click="data.message.isRead = true" :disabled="data.message.isRead">
                     <i class="fa fa-envelope" aria-hidden="true"></i> Mark as Read
                 </button>
             </template>
         </div>
-        <p><strong>Date:</strong>{{ data.message.date.fromNow() }}</p>
-        <p><strong>From:</strong> {{data.message.from.name}}  [{{ data.message.from.email }}]</p>
+        <div class="mail-info">
+            <p><strong>Date : </strong>{{ data.message.date.fromNow() }}</p>
+            <p><strong>From : </strong> {{data.message.from.name}}  [{{ data.message.from.email }}]</p>
+        </div>
         <hr>
         <div v-html="data.message.content" class="message"></div>
         <div v-if="data.message.attachments.length > 0" class="attachments">
@@ -74,3 +76,7 @@
         }
     }
 </script>
+
+<style>
+    
+</style>
