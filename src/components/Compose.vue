@@ -1,13 +1,12 @@
 <template>
     <div>
-        <a href="#composeModal" data-toggle="modal" class="btn-compose">Ecrire</a>
+        <a href="#composeModal" data-toggle="modal" class="btn-compose">{{messageAction}}</a>
 
         <div aria-hidden="true" role="dialog" tabindex="-1" id="composeModal" class="modal fade" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                        <h4 class="modal-title">New Message</h4>
                     </div>
 
                     <div class="modal-body">
@@ -15,14 +14,14 @@
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="subject">Subject</label>
                                 <div class="col-lg-10">
-                                    <input type="text" id="subject" class="form-control" v-model="message.subject">
+                                    <input type="text" id="subject" class="form-message" v-model="message.subject">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-lg-2 control-label" for="message">Message</label>
                                 <div class="col-lg-10">
-                                    <textarea  rows="10" cols="30" class="form-control" id="message" v-model="message.content"></textarea>
+                                    <textarea  rows="10" cols="30" class="form-message" id="message" v-model="message.content"></textarea>
                                 </div>
                             </div>
 
@@ -48,7 +47,8 @@
                 message:{
                     subject:'',
                     content: ''
-                }
+                },
+                messageAction: 'Ecrire'
             }
         },
         methods:{

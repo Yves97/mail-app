@@ -1,11 +1,9 @@
 <template>
   <div>
-    <div class="container">
       <div class="mail-box">
         <app-sidebar :messages="messages"></app-sidebar>
         <app-content :messages="messages"></app-content>
       </div>
-    </div>
   </div>
 </template>
 

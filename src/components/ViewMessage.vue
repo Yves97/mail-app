@@ -1,3 +1,4 @@
+<script src="../main.js"></script>
 <template>
     <div class="inbox-body">
         <div class="mail-option">

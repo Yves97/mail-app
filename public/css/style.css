@@ -37,10 +37,10 @@ html{
 body{
     box-sizing: border-box;
     font-size: 1.6rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.205),rgba(0, 0, 0, 0.658)), url('../images/img1.jpg') center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.205),rgba(0, 0, 0, 0.658)), url('../images/img4.jpg') center no-repeat;
     background-size: cover;
-    height: 100vh;
-    padding: 2rem 0;
+    min-height: 100vh;
+    padding: 2rem;
 }
 
 a,a:hover{
@@ -117,6 +117,34 @@ a.mail-dropdown {
 .compose-wrapper {
     padding: 2rem;
 }
+
+.modal-header{
+    display: block;
+    text-align: right;
+}
+
+.modal-header .close{
+    background: var(--primary-color_light);
+    font-size: 2.5rem;
+    outline: none;
+}
+
+.control-label{
+    font-size: 1.3rem;
+}
+
+.form-message{
+    border: 1px solid var(--primary-color_light);
+    width: 100%;
+    border-radius: 3px;
+    padding: 5px 0 5px 5px;
+    font-size: 1.3rem;
+}
+
+.form-message:focus{
+    outline-color: var(--primary-color_light);
+}
+
 
 .inbox-body {
     padding: 2rem;
@@ -324,13 +352,13 @@ ul.inbox-pagination li {
     box-shadow: none;
 }
 
-.btn-send, .btn-send:hover {
-    background: none repeat scroll 0 0 var(--primary-color_light);
-    color: var(--color-white);
-}
+.btn-send{
+    background: var(--primary-color_dark) !important;
+    color: var(--color-white) !important;
+    transition: all .2s;
 
-.btn-send:hover {
-    background: none repeat scroll 0 0 var(--primary-color_lighten);
+}.btn-send:hover{
+    background: #ec4999 !important;
 }
 
 .modal-header h4.modal-title {
@@ -365,10 +393,6 @@ ul.inbox-pagination li {
     color: var(--color-gray__dark);
     font-size: 1rem;
     padding: 0 .3rem;
-}
-
-.view-mail a {
-    color: var(--color-red);
 }
 
 .attachment-mail {
@@ -462,6 +486,14 @@ ul.inbox-pagination li {
     font-size: 1.2rem !important;
 }
 
+.message {
+    font-size: 1.8rem;
+}
+
+.attachments {
+    margin-top: 3rem;
+}
+
 @media (max-width: 767px) {
     .files .btn span {
         display: none;
@@ -482,10 +514,8 @@ ul.inbox-pagination li {
     }
 }
 
-.message {
-    font-size: 1.8rem;
-}
-
-.attachments {
-    margin-top: 3rem;
+@media screen and (max-width: 681px){
+    .mail-box{
+        display: block;
+    }
 }
